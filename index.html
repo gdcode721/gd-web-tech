@@ -3,499 +3,860 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godawari Web Technologies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Bootstrap Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
         }
-        .navbar {
-            background: rgba(0, 0, 0, 0.8) !important;
+        .offcanvas {
+            width: 250px;
         }
-        .navbar-brand, .nav-link {
-            color: white !important;
-        }
-        .hero {
-            height: 100vh;
+        /* Banner Styling */
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 350px; /* Adjust as needed */
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP2qjkZ7SWnUg5aXudfvE5YmZxLdHv_6RcwowLqGgHqs6LpznFTdN2Y4sP78JCUQGruQQ&usqp=CAU') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
-            position: relative;
         }
-        .hero-overlay {
+
+        /* Gradient Overlay */
+        .banner::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
         }
-        .hero-content {
+
+        /* Banner Text */
+        .banner-text {
             position: relative;
-            z-index: 2;
-        }
-        .section {
-            padding: 60px 0;
-            text-align: center;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-in-out;
-        }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .card img {
-            border-radius: 10px 10px 0 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
-        .expertise-section {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .expertise-title {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .expertise-subtitle {
-            color: gray;
-            margin-bottom: 30px;
-        }
-        .expertise-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-        }
-        .expertise-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .expertise-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-        }
-        .expertise-card h5 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .expertise-card p {
-            color: gray;
-            font-size: 0.9rem;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
-        .expertise-section {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .expertise-title {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .expertise-subtitle {
-            color: gray;
-            margin-bottom: 30px;
-        }
-        .expertise-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            transition: 0.3s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-        }
-        .expertise-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .expertise-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-            color: #4A4AFF;
-        }
-        .expertise-card h5 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .expertise-card p {
-            color: gray;
-            font-size: 0.9rem;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
-        .feature-section {
-            padding: 60px 20px;
-        }
-        .feature-image {
-            border-radius: 15px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            width: 100%;
-        }
-        .feature-content h2 {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        .feature-list li {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .feature-list li i {
-            color: #4A4AFF;
-            font-size: 1.3rem;
-            margin-right: 10px;
-        }
-        .cta-button {
-            display: inline-block;
-            font-size: 1.1rem;
-            color: #4A4AFF;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .cta-button:hover {
-            text-decoration: underline;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f4f4f4;
-        }
-
-        .footer {
-            background-color: #000;
             color: white;
-            padding: 50px 10%;
+            font-size: 42px;
+            font-weight: bold;
+            font-family: "Poppins", sans-serif;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        .banner-text span {
+            color: #9370DB; /* Light Purple */
         }
 
-        .footer-column {
-            flex: 1;
-            min-width: 220px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner {
+                height: 250px;
+            }
+            .banner-text {
+                font-size: 30px;
+            }
+        }
+        body {
+            background: #f8f9fa;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .form-container {
+            max-width: 500px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            background: url(https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg);
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
             margin-bottom: 20px;
+            color: #343a40;
         }
 
-        .footer h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #fff;
-            display: inline-block;
-            padding-bottom: 5px;
+        .form-control {
+            border-radius: 8px;
         }
 
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer ul li a {
+        .btn-submit {
+            width: 100%;
+            background: #6a11cb;
             color: white;
-            text-decoration: none;
-            transition: 0.3s;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s ease;
         }
 
-        .footer ul li a:hover {
-            text-decoration: underline;
-            color: #f4b400;
+        .btn-submit:hover {
+            background: #2575fc;
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f8f9fa;
+            color: #333;
         }
 
-        .footer .contact p {
-            margin: 5px 0;
-        }
-
-        .footer .social-icons img {
-            width: 30px;
-            margin-right: 10px;
-        }
-
-        .footer-bottom {
+        .content-section {
+            max-width: 900px;
+            margin: 50px auto;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            font-size: 14px;
         }
 
-        .ratings {
-            display: flex;
-            gap: 10px;
+        .content-section h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .highlight {
+            color: #7d3cff;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
             margin-top: 10px;
         }
 
-        .ratings img {
-            width: 50px;
-            border-radius: 5px;
-            background: white;
-            padding: 5px;
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
         }
+
+        .image-container img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        .services-section {
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #7d3cff;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .service-text {
+            font-size: 16px;
+            color: #555;
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+
+        .services-section {
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #7d3cff;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .service-text {
+            font-size: 16px;
+            color: #555;
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .feature-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-text {
+            width: 50%;
+        }
+
+        .feature-text h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .feature-text p {
+            font-size: 16px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .feature-btn {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            text-decoration: none;
+            border-bottom: 2px solid #555;
+            padding-bottom: 5px;
+        }
+
+        .feature-image {
+            width: 45%;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .feature-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-text, .feature-image {
+                width: 100%;
+            }
+
+            .feature-image img {
+                margin-top: 20px;
+            }
+        }
+        {
+            font-family: "Poppins", sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .services-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .services-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #4a3aff;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .service-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                margin-bottom: 20px;
+            }
+        }
+ h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {}
+        
+        section {
+            padding: 60px 0;
+            min-height: 100vh;
+        }
+        
+        a,
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: none;
+            outline: none;
+        }
+        
+        a,
+        a:active,
+        a:focus {
+            color: #6f6f6f;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img {
+    max-width: 100%;
+    height: auto;
+}.footer-section {
+  background-color: #233243;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+}
+.footer-section:before {
+  content: '';
+  position: absolute;
+  top: -146%;
+  left: -18%;
+  width: 44%;
+  height: 257%;
+  transform: rotate(54deg);
+  background-color: rgb(31, 47, 64);
+  -webkit-transform: rotate(54deg);
+  -moz-transform: rotate(54deg);
+  -ms-transform: rotate(54deg);
+  -o-transform: rotate(54deg);
+  z-index: -10;
+}
+.footer-section:after {
+  position: absolute;
+  content: '';
+  background-color: rgb(31, 47, 64);
+  top: -24%;
+  right: 4%;
+  width: 26%;
+  height: 264%;
+  transform: rotate(44deg);
+  -webkit-transform: rotate(44deg);
+  -moz-transform: rotate(44deg);
+  -ms-transform: rotate(44deg);
+  -o-transform: rotate(44deg);
+  z-index: -10;
+}
+.footer-top {
+  padding-top: 96px;
+  padding-bottom: 50px;
+}
+.footer-top p,
+.company-footer-contact-list li {
+  color: #ffffff;
+}
+.company-footer-contact-list {
+  margin-top: 10px;
+}
+.company-footer-contact-list li {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+.company-footer-contact-list li+li {
+  margin-top: 5px;
+}
+.company-footer-contact-list li i {
+  margin-right: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.footer-top .site-logo {
+    margin-bottom: 25px;
+    display: block;
+    max-width: 170px;
+}
+.widget-title {
+  text-transform: capitalize;
+}
+.footer-top .widget-title {
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+.courses-link-list li+li {
+  margin-top: 10px;
+}
+.courses-link-list li a {
+  color: #ffffff;
+  text-transform: capitalize;
+  font-family: var(--para-font);
+  font-weight: 400;
+}
+.courses-link-list li a:hover {
+  color: #ffb606;
+}
+.courses-link-list li i {
+  margin-right: 5px;
+}
+.footer-top .small-post-title a {
+  font-family: var(--para-font);
+  color: #ffffff;
+  font-weight: 400;
+}
+.small-post-item .post-date {
+  color: #ffb606;
+  margin-bottom: 3px;
+  font-family: var(--para-font);
+  font-weight: 400;
+}
+.small-post-list li+li {
+  margin-top: 30px;
+}
+.news-letter-form {
+  margin-top: 15px;
+}
+.news-letter-form input {
+  width: 100%;
+  padding: 12px 25px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+}
+.news-letter-form input[type="submit"] {
+  width: auto;
+  border: none;
+  background-color: #ffb606;
+  padding: 9px 30px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+.footer-bottom {
+  padding: 13px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.149);
+}
+.copy-right-text {
+  color: #ffffff;
+}
+.copy-right-text a {
+  color: #ffb606;
+}
+.terms-privacy li+li {
+  margin-left: 30px;
+}
+.terms-privacy li a {
+  color: #ffffff;
+  position: relative;
+}
+.terms-privacy li a:after {
+  position: absolute;
+  content: '-';
+  color: #ffffff;
+  display: inline-block;
+  top: 0;
+  right: -18px;
+}
+.terms-privacy li+li a:after {
+  display: none;
+}
+        
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white shadow-sm px-3">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#">Gd  Web Technologies</a>
+            <button class="btn btn-outline-dark d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                <i class="fas fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#">Godawari Web Technologies</a>
+            <div class="d-none d-md-flex">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">MARKETING</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">CONTENT</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">ABM</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">LEAD GENERATION</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">B2B</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">WEBSITES</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">RESULTS</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">AGENCY</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="#">CONTACT</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar">
+    <!-- Offcanvas Sidebar (Mobile Menu) -->
+    <div class="offcanvas offcanvas-start" id="mobileMenu">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="projcetfrom.html">Project Form</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">MARKETING</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CONTENT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">ABM</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">LEAD GENERATION</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">B2B</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">WEBSITES</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">RESULTS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">AGENCY</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
             </ul>
         </div>
     </div>
-
-    
-    <div class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="animate__animated animate__fadeInDown">Welcome to Godawari Web Technologies</h1>
-            <p class="lead">Innovative Solutions for the Digital World</p>
-            <a href="#services" class="btn btn-primary">Explore Services</a>
-              
-            
-        </div>
+    <div class="banner">
+        <h1 class="banner-text">IT Company <span>Website Design</span></h1>
     </div>
     
-    <section id="services" class="section">
-        <h2>Our Services</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png" class="card-img-top" alt="Web Development">
-                        <h5 class="card-title">Web Development</h5>
-                        <p class="card-text">We create modern, high-performance websites.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdC5pefs3xTZiKNlzoiRX_14BRtqbld9Zzwg&s" class="card-img-top" alt="E-Commerce Solutions">
-                        <h5 class="card-title">E-Commerce Solutions</h5>
-                        <p class="card-text">Build and scale your online business.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjkd1IhuT2471pvGAPYwEcyq8urakXbqvtgw&s" class="card-img-top" alt="SEO & Marketing">
-                        <h5 class="card-title">SEO & Marketing</h5>
-                        <p class="card-text">Enhance your online visibility and brand growth.</p>
-                    </div>
-                </div>
+    <div class="form-container">
+        <h2 class="form-title">Client Inquiry Form</h2>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your full name" required>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Type</label>
+                <select class="form-control" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="E-commerce Website">E-commerce Website</option>
+                    <option value="SEO & Marketing">SEO & Marketing</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Details</label>
+                <textarea class="form-control" rows="4" placeholder="Describe your project"></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit Inquiry</button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="content-section">
+            <h1>We build IT websites that <span class="highlight">drive business results.</span></h1>
+            <p>Ironpaper specializes in transforming IT websites with stagnant growth into powerful growth engines. 
+                Our clients come to us when their website is not driving results. We create high-performing IT websites 
+                that engage, convert, and drive sales from ideal buyers.</p>
+            <p>As a specialized B2B digital marketing agency, we know your digital brand can be a powerful differentiator. 
+                We are experts in creating IT websites that capture the attention of ideal customers and drive them forward 
+                in the buyer's journey.</p>
         </div>
-    </section>
-    <section class="expertise-section">
-        <h2 class="expertise-title">Our Expertise</h2>
-        <p class="expertise-subtitle">3,000+ projects and counting</p>
-    
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://sundayguardianlive.com/wp-content/uploads/2023/12/01-5.jpg" alt="AI Solutions" class="expertise-icon">
-                        <h5>AI Solutions</h5>
-                        <p>Harnessing AI for automation and process improvements.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZHSe8DQCnEevycULMZS35BXRbomYU4LvBaw&s" alt="Data Analytics" class="expertise-icon">
-                        <h5>Data Analytics + Business Intelligence</h5>
-                        <p>Integrate data points to drive business growth.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3i0R_WHQAmphy_pJ-CyuT1ULYuTa_hWUp3w&s" alt="Cloud DevOps" class="expertise-icon">
-                        <h5>QA / Cloud / DevOps</h5>
-                        <p>Optimize your cloud infrastructure with best practices.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-UXBuMxfHodev4347Ztxb3DQw-L4DSb5xsQ&s" alt="Product Strategy" class="expertise-icon">
-                        <h5>Product + Roadmap Strategy</h5>
-                        <p>Strategic planning for process design and development.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-   
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrC8VFKpi3MzTIlzc4B1N79t7sgkabvEhFQ&s" alt="MVP Prototypes" class="expertise-icon">
-                        <h5>MVPs + Rapid Prototypes</h5>
-                        <p>We help you build functional products from ideation to launch.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://cmsminds.com/wp-content/uploads/2024/04/Why-does-your-SaaS-need-a-CMS.webp" alt="CMS & SaaS" class="expertise-icon">
-                        <h5>CMS & SaaS Platforms</h5>
-                        <p>Scalable solutions aligned with business needs.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBriLjddGHB5Du0q8iXT71rnXIBBZyBKZ3Lg&s" alt="Marketplaces" class="expertise-icon">
-                        <h5>Marketplaces</h5>
-                        <p>We help users engage and optimize conversion rates.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="expertise-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1DYdqLqkVZKn0JHn37QGEr4EULMG_tLHogg&s" alt="Product Market Fit" class="expertise-icon">
-                        <h5>Product-Market-Fit</h5>
-                        <p>Transforming visions into successful products.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column contact">
-                <h3>Contact Us</h3>
-                <p><strong>📞 +91 6264536204</strong></p>
-                <p><strong>📧 gdwebtech33@gmail.com</strong></p>
-            </div>
-    
-            <div class="footer-column">
-                <h3>Web Development</h3>
-                <ul>
-                    <li><a href="#">Full Stack Development</a></li>
-                    <li><a href="#">PHP Development</a></li>
-                    <li><a href="#">Shopify App Development</a></li>
-                    <li><a href="#">Node.js Development</a></li>
-                    <li><a href="#">React Development</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer-column">
-                <h3>Mobile App Development</h3>
-                <ul>
-                    <li><a href="#">iOS App Development</a></li>
-                    <li><a href="#">Android App Development</a></li>
-                    <li><a href="#">Progressive Web Application</a></li>
-                    <li><a href="#">Flutter App Development</a></li>
-                    <li><a href="#">Apple watchOS Development</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer-column">
-                <h3>Our Work</h3>
-                <ul>
-                    <li><a href="#">evrmore</a></li>
-                    <li><a href="#">Focus Investment</a></li>
-                    <li><a href="#">Studio SWEAT onDemand</a></li>
-                    <li><a href="#">Reliant Parking</a></li>
-                    <li><a href="#">TeleHealth</a></li>
-                    <li><a href="#">JobLog</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Process</a></li>
-                    <li><a href="#">Case Studies</a></li>
-                    <li><a href="#">News Room</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Areas We Serve</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="ratings">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Rating">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Font_Awesome_5_solid_star.svg/120px-Font_Awesome_5_solid_star.svg.png" alt="Clutch Rating">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Clutch_logo.png/320px-Clutch_logo.png" alt="Clutch">
-        </div>
-    
-        <div class="footer-bottom">
-            <p>© 2025 Godawari Web Technologies. All rights reserved.</p>
-        </div>
-    </footer>
-    
 
-    <script>
-        $(window).on("scroll", function() {
-            $(".card").each(function() {
-                var top_of_element = $(this).offset().top;
-                var bottom_of_window = $(window).scrollTop() + $(window).height();
-                if (bottom_of_window > top_of_element) {
-                    $(this).addClass("visible");
-                }
-            });
-        });
-    </script>
+        <!-- Image Below Text -->
+        <div class="image-container">
+            <img src="https://www.ironpaper.com/hs-fs/hubfs/Storyful%20website%20design.webp?width=2268&height=2376&name=Storyful%20website%20design.webp" alt="IT Website Design">
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="mt-5">3,000+ projects and counting</h3>
+        <div class="row services-section mt-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-check service-icon"></i>
+                    <h4 class="service-title">AI Solutions</h4>
+                    <p class="service-text">We give you a competitive advantage by harnessing AI for automation and process improvement gains to drive total value.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h4 class="service-title">Data Analytics + Business Intelligence</h4>
+                    <p class="service-text">We help you define clear business goals, build and integrate data points to drive and grow your bottom line.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-cloud service-icon"></i>
+                    <h4 class="service-title">QA / Cloud / DevOps</h4>
+                    <p class="service-text">We help you build from the ground up or apply best practices to optimize your existing cloud infrastructure or pipeline.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-bolt service-icon"></i>
+                    <h4 class="service-title">Product + Roadmap Strategy</h4>
+                    <p class="service-text">We are your strategic partner for product, process design & development for a bulletproof roadmap.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+       <!--<h3 class="mt-5">Our Services</h3>--> 
+        <div class="row services-section mt-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-gem service-icon"></i>
+                    <h4 class="service-title">MVPs + Rapid Prototypes</h4>
+                    <p class="service-text">We combine our product-led-growth technical and creative prowess to help you build functional products from ideation to launch.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-cloud service-icon"></i>
+                    <h4 class="service-title">CMS & SaaS Platforms</h4>
+                    <p class="service-text">We help you build proprietary and scalable solutions that align with your business needs without sacrificing customization.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-bookmark service-icon"></i>
+                    <h4 class="service-title">Marketplaces</h4>
+                    <p class="service-text">We help marketplace users converge, engage with your brand, and turn user experiences into powerful conversion drivers.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-anchor service-icon"></i>
+                    <h4 class="service-title">Product-Market-Fit</h4>
+                    <p class="service-text">We can help you iterate to make your blue sky visions actualize in a desirable product that meets strong market demand.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="feature-section">
+        <div class="feature-text">
+            <h2>Ready-Launch App with Composable Architecture</h2>
+            <p>We built a PWA (Progressive Web App) on a customizable platform that allows large health enterprises to adopt the platform for their purpose — It includes a rich feature-set that covers a full range of on-demand services and automations that serve as a holistic portal for multiple stakeholders and health systems.</p>
+            <a href="#" class="feature-btn">View Project</a>
+        </div>
+        <div class="feature-image">
+            <img src="https://cdn.dribbble.com/userupload/41245245/file/original-850e6ed57edfd03c6d1b94ae832d62f7.png?format=webp&resize=400x300&vertical=center" alt="App Screenshot">
+        </div>
+    </div>
+    <section class="services-section">
+        <h2>Explore Our Services In</h2>
+        <div class="container">
+            <div class="row gy-4">
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <i class="fa-solid fa-code service-icon"></i>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-text">Start your project from scratch or improve your existing website.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <i class="fa-solid fa-mobile service-icon"></i>
+                        <h3 class="service-title">Mobile App Development</h3>
+                        <p class="service-text">Convert your ideas into great mobile apps or take your business online.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <i class="fa-solid fa-chart-line service-icon"></i>
+                        <h3 class="service-title">Enterprise Software</h3>
+                        <p class="service-text">Achieve your enterprise goals with reliable software solutions.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card">
+                        <i class="fa-solid fa-globe service-icon"></i>
+                        <h3 class="service-title">PWA Development</h3>
+                        <p class="service-text">Develop Progressive Web Apps with enhanced security and speed.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer-section">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget company-intro-widget">
+                  <a href="index.html" class="site-logo"><img src="" alt="logo"></a>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                  <ul class="company-footer-contact-list">
+                    <li><i class="fas fa-phone"></i>0123456789</li>
+                    <li><i class="fas fa-clock"></i>Mon - Sat 8.00 - 18.00</li>
+                  </ul>
+                </div>
+              </div><!-- widget end -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget course-links-widget">
+                  <h5 class="widget-title">Popular Courses</h5>
+                  <ul class="courses-link-list">
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>Academic English</a></li>
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>Web Technology</a></li>
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>PC Systems</a></li>
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>Ui Web Design</a></li>
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>Web Development</a></li>
+                    <li><a href="#"><i class="fas fa-long-arrow-alt-right"></i>Apps Development</a></li>
+                  </ul>
+                </div>
+              </div><!-- widget end -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget latest-news-widget">
+                  <h5 class="widget-title">lastest news</h5>
+                  <ul class="small-post-list">
+                    <li>
+                      <div class="small-post-item">
+                        <a href="#" class="post-date">July 18, 2018</a>
+                        <h6 class="small-post-title"><a href="#">Lorem Ipsum is simply dummy text of the printing.</a></h6>
+                      </div>
+                    </li><!-- small-post-item end -->
+                    <li>
+                      <div class="small-post-item">
+                        <a href="#" class="post-date">July 28, 2018</a>
+                        <h6 class="small-post-title"><a href="#">Lorem Ipsum is simply dummy text of the printing</a></h6>
+                      </div>
+                    </li><!-- small-post-item end -->
+                  </ul>
+                </div>
+              </div><!-- widget end -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget newsletter-widget">
+                  <h5 class="widget-title">Newsletter</h5>
+                  <div class="footer-newsletter">
+                    <p>Sign Up to Our Newsletter to Get Latest Updates & Services</p>
+                    <form class="news-letter-form">
+                      <input type="email" name="news-email" id="news-email" placeholder="Your email address">
+                      <input type="submit" value="Send">
+                    </form>
+                  </div>
+                </div>
+              </div><!-- widget end -->
+            </div>
+          </div> 
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 text-sm-left text-center">
+                  <span class="copy-right-text">© 2019 <a href="https://codepen.io/anupkumar92">Anup</a> All Rights Reserved.</span>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <ul class="terms-privacy d-flex justify-content-sm-end justify-content-center">
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div><!-- footer-bottom end -->
+      </footer>
+    
 </body>
 </html>
