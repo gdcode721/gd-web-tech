@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Reviews | GD</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .review {
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      position: relative;
+    }
+    .review strong {
+      color: #333;
+      font-size: 16px;
+    }
+    .rating {
+      color: gold;
+      font-size: 18px;
+      float: right;
+    }
+    .verified {
+      font-size: 12px;
+      color: #4285F4;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    .success-msg {
+      background-color: #e6ffe6;
+      border: 1px solid #4CAF50;
+      padding: 10px;
+      border-radius: 6px;
+      color: #2e7d32;
+      display: none;
+      margin-bottom: 20px;
+    }
+    .error-msg {
+      background-color: #ffe6e6;
+      border: 1px solid #f44336;
+      padding: 10px;
+      border-radius: 6px;
+      color: #b71c1c;
+      display: none;
+      margin-bottom: 20px;
+    }
+    img.review-photo {
+      width: 100%;
+      max-height: 300px;
+      margin-top: 10px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Client Reviews</h2>
+
+  <div class="success-msg" id="successMsg">✅ Thank you! Your review has been submitted.</div>
+  <div class="error-msg" id="errorMsg">❌ Invalid Client ID or Password.</div>
+
+  <form id="reviewForm">
+    <input type="text" id="clientId" placeholder="Client ID (Only Sohan)" required>
+    <input type="password" id="clientPassword" placeholder="Password" required>
+
+    <input type="text" id="clientName" placeholder="Your Name" required>
+    <textarea id="clientReview" placeholder="Write your review..." rows="4" required></textarea>
+    
+    <select id="clientRating" required>
+      <option value="">Select Rating</option>
+      <option value="⭐">⭐</option>
+      <option value="⭐⭐">⭐⭐</option>
+      <option value="⭐⭐⭐">⭐⭐⭐</option>
+      <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+      <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+    </select>
+
+    <input type="file" id="clientPhoto" accept="image/*">
+
+    <button type="submit">Submit Review</button>
+  </form>
+
+  <div id="reviewsContainer"></div>
+</div>
+
+<script>
+  const form = document.getElementById('reviewForm');
+  const reviewsContainer = document.getElementById('reviewsContainer');
+  const successMsg = document.getElementById('successMsg');
+  const errorMsg = document.getElementById('errorMsg');
+
+  let reviews = JSON.parse(localStorage.getItem("clientReviews")) || [];
+
+  window.onload = function() {
+    displayReviews();
+  };
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const clientId = document.getElementById('clientId').value.trim();
+    const clientPassword = document.getElementById('clientPassword').value.trim();
+    const name = document.getElementById('clientName').value.trim();
+    const review = document.getElementById('clientReview').value.trim();
+    const rating = document.getElementById('clientRating').value;
+    const photoInput = document.getElementById('clientPhoto');
+    const file = photoInput.files[0];
+
+    if (clientId !== "881714" || clientPassword !== "123456") {
+      errorMsg.style.display = "block";
+      successMsg.style.display = "none";
+      return;
+    } else {
+      errorMsg.style.display = "none";
+    }
+
+    if (!name || !review || !rating) return;
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const newReview = {
+          name,
+          review,
+          rating,
+          timestamp: new Date().toLocaleString(),
+          photo: event.target.result
+        };
+        saveReview(newReview);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      const newReview = {
+        name,
+        review,
+        rating,
+        timestamp: new Date().toLocaleString(),
+        photo: null
+      };
+      saveReview(newReview);
+    }
+  });
+
+  function saveReview(reviewObj) {
+    reviews.unshift(reviewObj);
+    localStorage.setItem("clientReviews", JSON.stringify(reviews));
+    displayReviews();
+    form.reset();
+
+    successMsg.style.display = "block";
+    setTimeout(() => {
+      successMsg.style.display = "none";
+    }, 4000);
+  }
+
+  function displayReviews() {
+    reviewsContainer.innerHTML = '';
+    reviews.forEach(r => {
+      const div = document.createElement('div');
+      div.className = 'review';
+      div.innerHTML = `
+        <strong>${r.name}</strong>
+        <span class="rating">${r.rating}</span><br>
+        <p>${r.review}</p>
+        ${r.photo ? `<img src="${r.photo}" class="review-photo">` : ''}
+        <div class="verified">✔ Verified by Google · ${r.timestamp}</div>
+      `;
+      reviewsContainer.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>
